@@ -1,0 +1,15 @@
+.ForecastSection {
+    color: white;
+    margin: 30px 0;
+}
+
+.ForecastSection > h3 {
+    margin-left: 20px;
+}
+
+.ForecastList {
+    margin-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}

@@ -1,0 +1,36 @@
+.Card {
+    position: relative;
+    display: inline-block;
+    background-color: rgb(255, 255, 255);
+    width: 180px;
+    margin: 20px;
+    padding: 20px;
+    text-align: center;
+    -webkit-box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.3);
+    border-radius: 5px;
+    transition: all 0.1s ease-in-out;
+}
+
+.Card:hover {
+    cursor: pointer;
+    transform: scale(1.05);
+}
+
+.Delete {
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    opacity: 0;
+    transition: opacity 0.1s ease-in-out;
+}
+
+.Card:hover .Delete {
+    opacity: 0.3;
+}
+
+.Card:hover .Delete:hover {
+    opacity: 1;
+}
