@@ -4,8 +4,14 @@ import classes from "./WeatherCard.module.css";
 import { ReactComponent as Delete } from "../../../assets/delete.svg";
 
 const weatherCard = (props) => (
-    <div className={classes.Card}>
-        <Delete className={classes.Delete} onClick={props.removeCityId} />
+    <div className={classes.Card} onClick={props.savedCityClicked}>
+        <Delete
+            className={classes.Delete}
+            onClick={(e) => {
+                e.stopPropagation();
+                props.removeCityId();
+            }}
+        />
         <h3 className={classes.CityName}>{props.cityName}</h3>
         <span className={classes.CityTemp}>{props.temperature}°</span>
         <figure>

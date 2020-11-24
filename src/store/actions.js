@@ -1,5 +1,12 @@
 import * as actionTypes from "./actionTypes";
 
+export const setIsSearch = (isSearch) => {
+    return {
+        type: actionTypes.SET_IS_SEARCH,
+        isSearch: isSearch,
+    };
+};
+
 export const setCityName = (cityName) => {
     return {
         type: actionTypes.SET_CITY_NAME,
@@ -133,5 +140,13 @@ export const getCityForecast = (lat, lon) => {
                 dispatch(setCityForecast(data.daily.splice(1, 6)));
             });
         });
+    };
+};
+
+export const savedCityClicked = (cityName, savedCitiesIds) => {
+    return (dispatch) => {
+        dispatch(getCurrentWeather(cityName, savedCitiesIds));
+        dispatch(setCityName(cityName));
+        dispatch(setIsSearch(true));
     };
 };

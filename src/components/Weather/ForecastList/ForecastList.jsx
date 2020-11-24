@@ -2,6 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 
 import Forecast from "./Forecast/Forecast.jsx";
+
 import classes from "./ForecastList.module.css";
 
 const ForecastList = (props) => {

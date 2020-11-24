@@ -29,7 +29,6 @@ const info = (props) => (
                 <h4>{new Date(props.cityWeather.dt * 1000).toDateString()}</h4>
             </div>
         </div>
-
         <div className={classes.Details}>
             <div className={classes.ImageInfo}>
                 <div>

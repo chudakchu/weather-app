@@ -1,10 +1,10 @@
 import React from "react";
 import { connect } from "react-redux";
 
+import * as actions from "../../../store/actions";
+
 import Input from "../../UI/Input/Input.jsx";
 import Button from "../../UI/Button/Button.jsx";
-
-import * as actions from "../../../store/actions";
 
 import classes from "./Search.module.css";
 

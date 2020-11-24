@@ -1,6 +1,7 @@
 import * as actionTypes from "./actionTypes";
 
 const initialState = {
+    isSearch: true,
     cityName: "",
     cityWeather: null,
     isCitySaved: false,
@@ -11,6 +12,11 @@ const initialState = {
 
 const reducer = (state = initialState, action) => {
     switch (action.type) {
+        case actionTypes.SET_IS_SEARCH:
+            return {
+                ...state,
+                isSearch: action.isSearch,
+            };
         case actionTypes.SET_CITY_NAME:
             return {
                 ...state,

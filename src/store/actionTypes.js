@@ -1,3 +1,4 @@
+export const SET_IS_SEARCH = "SET_IS_SEARCH";
 export const SET_CITY_NAME = "SET_CITY_NAME";
 export const SET_CITY_WEATHER = "SET_CITY_WEATHER";
 export const SET_IS_CITY_SAVED = "SET_IS_CITY_SAVED";

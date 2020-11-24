@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
 
 import * as actions from "./store/actions";
@@ -11,11 +11,6 @@ import Footer from "./components/Footer/Footer.jsx";
 import "./App.css";
 
 const App = (props) => {
-    const [isSearch, setIsSearch] = useState(true);
-
-    const searchClicked = () => setIsSearch(true);
-    const savedClicked = () => setIsSearch(false);
-
     const { getCitiesIdsFromLocalStorage, getSavedCities } = props;
 
     useEffect(() => {
@@ -28,12 +23,8 @@ const App = (props) => {
 
     return (
         <div className="container">
-            <Navigation
-                search={searchClicked}
-                saved={savedClicked}
-                isSearch={isSearch}
-            />
-            {isSearch ? <Weather /> : <WeatherCardList />}
+            <Navigation />
+            {props.isSearch ? <Weather /> : <WeatherCardList />}
             <Footer />
         </div>
     );
@@ -41,6 +32,7 @@ const App = (props) => {
 
 const mapStateToProps = (state) => {
     return {
+        isSearch: state.isSearch,
         savedCitiesIds: state.savedCitiesIds,
     };
 };
