@@ -80,24 +80,23 @@ export const removeCityIdFromLocalStorage = (id, savedCitiesIds) => {
 
 export const getSavedCities = (savedCitiesIds) => {
     return (dispatch) => {
-        if (savedCitiesIds.length !== 0) {
-            const url = `http://api.openweathermap.org/data/2.5/group?id=${savedCitiesIds.join(
-                ","
-            )}&appid=ffd5b222893afee068a6566732e068d5&units=metric`;
-            fetch(url)
-                .then((response) => {
-                    if (response.ok)
-                        response
-                            .json()
-                            .then((data) =>
-                                dispatch(setSavedCities(data.list))
-                            );
-                })
-                .catch((error) => {
-                    console.log(error);
-                });
+        if (savedCitiesIds.length === 0) {
+            dispatch(setSavedCities([]));
+            return;
         }
-        dispatch(setSavedCities([]));
+        const url = `http://api.openweathermap.org/data/2.5/group?id=${savedCitiesIds.join(
+            ","
+        )}&appid=ffd5b222893afee068a6566732e068d5&units=metric`;
+        fetch(url)
+            .then((response) => {
+                if (response.ok)
+                    response
+                        .json()
+                        .then((data) => dispatch(setSavedCities(data.list)));
+            })
+            .catch((error) => {
+                console.log(error);
+            });
     };
 };
 

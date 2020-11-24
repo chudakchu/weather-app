@@ -27,17 +27,15 @@ const App = (props) => {
     }, [getSavedCities, props.savedCitiesIds]);
 
     return (
-        <>
-            <div className="container">
-                <Navigation
-                    search={searchClicked}
-                    saved={savedClicked}
-                    isSearch={isSearch}
-                />
-                {isSearch ? <Weather /> : <WeatherCardList />}
-            </div>
+        <div className="container">
+            <Navigation
+                search={searchClicked}
+                saved={savedClicked}
+                isSearch={isSearch}
+            />
+            {isSearch ? <Weather /> : <WeatherCardList />}
             <Footer />
-        </>
+        </div>
     );
 };
 
